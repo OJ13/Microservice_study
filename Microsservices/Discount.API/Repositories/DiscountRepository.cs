@@ -23,7 +23,7 @@ namespace Discount.API.Repositories
         }
         private NpgsqlConnection GetConnectionPostgreSQL()
         {
-            return new NpgsqlConnection(_configuration.GetValue<string>("DatabaseSettings:ConnectionStrings"));
+            return new NpgsqlConnection(_configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
         }
 
         public async Task<Coupon> GetDiscount(string productName)
@@ -54,7 +54,7 @@ namespace Discount.API.Repositories
         {
             NpgsqlConnection connection = GetConnectionPostgreSQL();
 
-            var affected = await connection.ExecuteAsync("UPDATE Coupon SET ProductName = @ProductName, Decription = @Description, Amount = @Amount WHERE Id = @Id",
+            var affected = await connection.ExecuteAsync("UPDATE Coupon SET ProductName = @ProductName, Description = @Description, Amount = @Amount WHERE Id = @Id",
                 new { ProductName = coupon.ProductName, Description = coupon.Description, Amount = coupon.Amount, Id = coupon.Id });
 
             if (affected == 0)
