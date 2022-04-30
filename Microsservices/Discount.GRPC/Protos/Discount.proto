@@ -12,7 +12,7 @@ service DiscountProtoService {
 	rpc DeleteDiscount(DeleteDiscountRequest) returns (DeleteDiscountResponse);
 }
 
-//Entidities
+//Entities
 message CouponModel {
 	int32 id = 1;
 	string productName = 2;
@@ -34,7 +34,7 @@ message UpdateDiscountRequest{
 }
 
 message DeleteDiscountRequest{
-	CouponModel coupon = 1;
+	string productName = 1;
 }
 
 //Resonses

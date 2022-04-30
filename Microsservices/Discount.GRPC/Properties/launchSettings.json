@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "GrpcService1": {
+    "Discount.GRPC": {
       "commandName": "Project",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
